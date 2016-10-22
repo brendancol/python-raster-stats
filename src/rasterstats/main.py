@@ -283,12 +283,13 @@ def _group_features(features, groupby):
 
     from collections import defaultdict
 
-    # return features ungrouped...
+    # return features ungrouped
     if groupby is None:
         for i, f in enumerate(features):
             yield (f, (f,))
 
-    if groupby is not None:
+    # return features grouped
+    else:
         groups = defaultdict(list)
         # handle groupby property name
         if isinstance(groupby, str):
